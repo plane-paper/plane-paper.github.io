@@ -1,0 +1,107 @@
+    h5 {
+      font-family: 'Times New Roman', Times, serif;
+      color: azure;
+    }
+
+    p {
+        font-family: 'Times New Roman', Times, serif;
+        color: azure
+    }
+    body {
+        background-image: url("https://cdn.wallpapersafari.com/17/96/qb1nJc.jpg");
+        background-repeat: repeat-x repeat-y;
+        background-position: right;
+        background-clip: initial;
+        background-color: #cccccc
+    }
+    #Foundation, #Famous-Members, 
+#Exilation, #Goals, 
+#French-Revolution, #Conspiracy,
+#Conclusion{
+    display: none;
+}
+    .hello{
+        color: white;
+    }
+    .btn-info{
+        color: white;
+        border: none;
+    }
+    .heading{
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+    }
+
+    .splash-padding{
+        padding-top: 40px;
+    }
+
+    .list-group-flush{
+        padding: 0px;
+    }
+
+    .completed{
+        color: black
+    }
+
+    .disabled{
+        color: #ccc !important;
+    }
+
+    ul{
+        color: azure
+    }
+
+
+
+    .subtext{
+        display: none;
+        padding-top: 10px;
+        line-height: 1.5;
+    }
+    
+    .subheading{
+        color: lightcoral;
+    }
+
+    .text{
+        color: azure
+    }
+
+    .body{
+        font-family: Helvetica, sans-serif;
+        letter-spacing: 1px;
+        font-weight: 300;
+    }
+
+    .title {
+      color: teal;
+    }
+
+    .uppercase {
+      text-transform: uppercase;
+    }
+
+    .collapsible {
+        background-color: #777;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+    }
+      
+    .active, .collapsible:hover {
+        background-color: #555;
+    }
+      
+    .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background-color: black;
+    }
