@@ -1,0 +1,69 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="style.css" type="text/css" rel="stylesheet">
+<title>Illuminati Quiz</title>
+</head>
+<body bgcolor=#ffffff>
+
+<h3 class = "text heading">Quiz!</h3>
+
+<form method="post" class = "text" action="mailto:richard.su@rns.cc?subject=Illuminati Quiz Answers" enctype="text/plain">
+
+Check the answer to each multiple-coice question, and click on the "Submit" button to submit the information. Clicking "Answer Key" would automatically submit the form and show answers. <br><br>
+
+<P>1. The founder of Illuminati and his alias is:<BR>
+<input class = "heading text mx-auto" type="radio" name="1. The founder of Illuminati and his alias is" value="Adam Wishaupt, Ajax">Adam Wishaupt, Ajax<BR>
+<input class = "heading text mx-auto" type="radio" name="1. The founder of Illuminati and his alias is" value="Adam Wishaupt, Spartacus">Adam Wishaupt, Spartacus<BR>
+<input class = "heading text mx-auto" type="radio" name="1. The founder of Illuminati and his alias is" value="Massenhausen, Ajax">Massenhausen, Ajax<BR>
+<input class = "heading text mx-auto" type="radio" name="1. The founder of Illuminati and his alias is" value="Bauhof, Agathon">Bauhof, Agathon<BR>
+</p>
+
+<P>2. The goal of illuminati is:<BR>
+<input type="radio" name="2. The goal of illuminati is" value="Equity, freedom, self-rule">Equity, freedom, self-rule<BR>
+<input type="radio" name="2. The goal of illuminati is" value="Darvinism, survival of the stronges">Darvinism, survival of the strongest<BR>
+<input type="radio" name="2. The goal of illuminati is" value="Monarchy, dictatorship, new world order">Monarchy, dictatorship, new world order<BR>
+<input type="radio" name="2. The goal of illuminati is" value="Contact aliens, nuke the world">Contact aliens, nuke the world<BR>
+</p>
+
+<P>3. Regarding the French Revolution, the illuminati:<BR>
+<input type="radio" name="3. Regarding the French Revolution, the illuminati" value="Was the mastermin">Was the mastermind<BR>
+<input type="radio" name="3. Regarding the French Revolution, the illuminati" value="Didn't participate at all">Didn't participate at all<BR>
+<input type="radio" name="3. Regarding the French Revolution, the illuminati" value="Was partly responsible, but ended because of Robespierre's mass execution">Was partly responsible, but ended because of Robespierre's mass execution<BR>
+<input type="radio" name="3. Regarding the French Revolution, the illuminati" value="Was supporting King Louis">Was supporting King Louis<BR>
+</p>
+
+<br>
+
+<input type="submit" value="Submit">
+<input type="reset" value="Reset">
+<br><br>
+<button class="collapsible">Answer Key</button>
+    <div class="content"><br>
+        <p>
+            1, Adam Wishaupt, Spartacus<br>
+            <br>
+            2, Equity, freedom, self-rule
+            <br><br>
+            3, Was partly responsible, but ended because of Robespierre's mass execution
+        </p>
+    </div>
+</form>
+</body>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
+</html>
