@@ -26,7 +26,22 @@
     .btn-info{
         color: white;
         border: none;
+        background-color: #f44336;
+        
     }
+
+    .btn-info:hover{
+        background-color: #555555
+    }
+
+    ul{
+        outline:1px solid #ccc;
+    }
+
+    .border{
+        border:1px solid white;
+    }
+    
     .heading{
         font-family: 'Times New Roman', Times, serif;
         text-align: center;
@@ -41,7 +56,8 @@
     }
 
     .completed{
-        color: black
+        background-color: black;
+        color: white
     }
 
     .disabled{
@@ -75,7 +91,7 @@
     }
 
     .title {
-      color: teal;
+      color: red;
     }
 
     .uppercase {
@@ -95,8 +111,12 @@
     }
       
     .active, .collapsible:hover {
-        background-color: #555;
+        background-color: black;
     }
+
+    .collapsible:focus {
+        background-color:black;
+      }
       
     .content {
         padding: 0 18px;
