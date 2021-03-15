@@ -5,7 +5,6 @@ $(document).ready(function(){
 
     $(".advance, .continue").on("click", buttonRender);
     $(".nav").on("click", showSideTarget);
-    $(".collapsible").on("click", $(".collapsible").addClass("btn-info"))
 
 
 
@@ -127,6 +126,7 @@ $(document).ready(function(){
 
             case "Conclusion":
                 $(pages[7]).hide();
+                hideAll()
                 $(pages[0]).show();
                 break;
 
