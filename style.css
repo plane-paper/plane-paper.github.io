@@ -33,11 +33,6 @@
     .btn-info:hover{
         background-color: #555555
     }
-
-    ul{
-        outline:1px solid #ccc;
-    }
-
     .border{
         border:1px solid white;
     }
