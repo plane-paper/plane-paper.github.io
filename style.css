@@ -30,9 +30,17 @@
         
     }
 
-    .btn-info:hover{
-        background-color: #555555
+    .red-button{
+        color: white;
+        border: none;
+        background-color: #f44336
     }
+
+    .red-button:hover{
+        background-color: #555555;
+        color: white
+    }
+
     .border{
         border:1px solid white;
     }
