@@ -1,0 +1,39 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="style.css" type="text/css" rel="stylesheet">
+<title>Illuminati Quiz</title>
+</head>
+<h3 class = "text heading">Quiz!</h3>
+<p>Check the answer to each multiple-coice question, and click on the "Submit" button to submit the information. <br></p>
+<body class="text times">
+    <div id="quiz"></div><br>
+    <button id="submit">Submit Quiz</button>
+    <div id="results"></div><br>
+    <button class="collapsible">Answer Key</button>
+    <div class="content"><br>
+        <p>
+            1, Adam Wishaupt, Spartacus<br>
+            <br>
+            2, Equity, freedom, self-rule
+            <br><br>
+            3, Was partly responsible, but ended because of Robespierre's mass execution
+        </p>
+    </div>
+</body>
+<script src="QuizScript.js"></script>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+</script>
