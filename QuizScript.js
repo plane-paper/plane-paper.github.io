@@ -31,6 +31,24 @@ const myQuestions = [
       d: "Was on the side of King Louis and were executed with him"
     },
     correctAnswer: "c"
+  },
+  {
+    question: "4. The reason of exilation of Illuminati was",
+    answers: {
+      a: "Contacting aliens",
+      b: "being in the service of the Austrian government",
+      c: "Providing fund for USA",
+      d: "Contacting Karl Marx for another copy of the Communist Manifesto"
+    },
+    correctAnswer: "b"
+  },
+  {
+    question: "5. All conspiracy theories regarding the Illuminati is",
+    answers:{
+      a: "True",
+      b: "False"
+    },
+    correctAnswer: "b"
   }
 ];
 function buildQuiz(){
@@ -44,12 +62,12 @@ function buildQuiz(){
               <input type="radio" name="question${questionNumber}" value="${letter}">
               ${letter} :
               ${currentQuestion.answers[letter]}
-            </label>`
+            </label><br>`
           );
         }
         output.push(
           `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
+          <div class="answers"> ${answers.join('')} </div><br>`
         );
       }
     );
