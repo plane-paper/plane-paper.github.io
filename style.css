@@ -63,6 +63,10 @@
         color: white
     }
 
+    .list-group-item:hover{
+        background-color:red
+    }
+
     .disabled{
         color: #ccc !important;
     }
