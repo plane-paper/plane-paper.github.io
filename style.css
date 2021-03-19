@@ -36,6 +36,33 @@
         background-color: #f44336
     }
 
+    .quiz-container{
+        text-align: left;
+    }
+    
+    #outer{
+        width:100%;
+        text-align: center;
+    }
+
+    .inner{
+        display: inline-block;
+    }
+
+    .alt-button{
+        color: white;
+        border: none;
+        background-color: #f44336
+    }
+
+    .alt-button:hover{
+        background-color: #ccc
+    }
+
+    .suggestion-container{
+        text-align: center;
+    }
+
     .red-button:hover{
         background-color: #555555;
         color: white
@@ -45,6 +72,9 @@
         border:1px solid white;
     }
     
+    .times{
+        font-family: 'Times New Roman', Times, serif
+    }
     .heading{
         font-family: 'Times New Roman', Times, serif;
         text-align: center;
