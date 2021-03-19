@@ -39,7 +39,7 @@
     .quiz-container{
         text-align: left;
     }
-    
+
     #outer{
         width:100%;
         text-align: center;
@@ -103,7 +103,8 @@
     }
 
     ul{
-        color: azure
+        color: azure;
+        font-family: 'Times New Roman', Times, serif
     }
 
 
