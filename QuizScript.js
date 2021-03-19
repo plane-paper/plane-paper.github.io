@@ -89,7 +89,9 @@ function showResults(){
         answerContainers[questionNumber].style.color = 'red';
       }
     });
+    alert(`${numCorrect} out of ${myQuestions.length}`);
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    
   }
 
 
