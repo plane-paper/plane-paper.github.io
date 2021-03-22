@@ -20,9 +20,7 @@
 #Conclusion{
     display: none;
 }
-    .hello{
-        color: white;
-    }
+
     .btn-info{
         color: white;
         border: none;
@@ -163,4 +161,9 @@
         overflow: hidden;
         transition: max-height 0.3s ease-out;
         background-color: black;
+    }
+
+    .list-group-item-info{
+        background-color:white;
+        color:black
     }
