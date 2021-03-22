@@ -93,6 +93,7 @@
 
     .list-group-item:hover{
         background-color:red;
+        color:white;
         cursor: pointer;
     }
 
