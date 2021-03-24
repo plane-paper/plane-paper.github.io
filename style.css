@@ -12,7 +12,8 @@
         background-repeat: repeat-x repeat-y;
         background-position: right;
         background-clip: initial;
-        background-color: #cccccc
+        background-color: #cccccc;
+        background-attachment:fixed
     }
     #Foundation, #Famous-Members, 
 #Exilation, #Goals, 
