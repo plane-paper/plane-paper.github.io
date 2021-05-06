@@ -3,50 +3,52 @@ const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
   {
-    question: "1. The founder of Illuminati and his alias is",
+    question: "1. The first official spacecraft is launched by: ",
     answers: {
-      a: "Adam Wishaupt, Ajax",
-      b: "Adam Wishaupt, Spartacus",
-      c: "Massenhausen, Ajax",
-      d: "Bauhof, Agathon"
+      a: "Wakanda",
+      b: "USSR",
+      c: "USA",
+      d: "The Democratic Republic of Germany"
     },
     correctAnswer: "b"
   },
   {
-    question: "2. The goal of illuminati is",
+    question: "2. _____ is not a purpose of a spacecraft",
     answers: {
-      a: "Equity, freedom, self-rule",
-      b: "Darvinism, survival of the strongest",
-      c: "Monarchy, dictatorship, new world order",
-      d: "Contact aliens, nuke the world"
+      a: "Meteorology",
+      b: "Earth Observation",
+      c: "Planetary Colonization",
+      d: "Industrialization"
     },
-    correctAnswer: "a"
+    correctAnswer: "d"
   },
   {
-    question: "3. Regarding the French Revolution, the illuminati",
+    question: "3. Spacecrafts doesn't have a specific size limit, but...",
     answers: {
-      a: "Was the mastermind",
-      b: "Didn't participate at all",
-      c: "Partly participated, but failed and some were executed later on.",
-      d: "Was on the side of King Louis and were executed with him"
+      a: "It needs to be large enough to contain an alien",
+      b: "It must be able to contain at least one astraunot and/or cargo equipments",
+      c: "It must be able to fit inside a rocket fairing and the rocket must have enough power to lift it into orbit",
+      d: "There is no other limits. A spacecraft can be as big or as small as it wants."
     },
     correctAnswer: "c"
   },
   {
-    question: "4. The reason of exilation of Illuminati was",
+    question: "4. As technology improves, the limitation on weight gets lifted, therefore...",
     answers: {
-      a: "Contacting aliens",
-      b: "being in the service of the Austrian government",
-      c: "Providing fund for USA",
-      d: "Contacting Karl Marx for another copy of the Communist Manifesto"
+      a: "The efficiency of performing tasks lower",
+      b: "The efficiency of performing tasks improve",
+      c: "The reliability of the spacecraft lower",
+      d: "The reliability of the spacecraft improve"
     },
     correctAnswer: "b"
   },
   {
-    question: "5. All conspiracy theories regarding the Illuminati is",
+    question: "5. A spacecraft's shape is dictated by...",
     answers:{
-      a: "True",
-      b: "False"
+      a: "It must be streamlined",
+      b: "Whether it spins or not",
+      c: "It must be circular",
+      d: "Whether there are people onboard or not."
     },
     correctAnswer: "b"
   }
