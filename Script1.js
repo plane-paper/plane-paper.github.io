@@ -135,5 +135,5 @@ $(document).ready(function(){
     };
 
 });
-/// Code Credit: Jeff Bell. I basically used his entire script for this page: https://jbell4.github.io/ and changed some names. 
+/// Code Credit: Jeff Bell. Edited from his github page. 
 /// I would develop my own code later on, if possible.
