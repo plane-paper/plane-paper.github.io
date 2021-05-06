@@ -5,10 +5,11 @@
 
     p {
         font-family: 'Times New Roman', Times, serif;
-        color: azure
+        color: azure;
+        line-height: 2.0;
     }
     body {
-        background-image: url("https://cdn.wallpapersafari.com/17/96/qb1nJc.jpg");
+        background-image: url("https://images.unsplash.com/photo-1531870257380-e44cf23a4135?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGRhcmslMjBzcGFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
         background-repeat: repeat-x repeat-y;
         background-position: right;
         background-clip: initial;
@@ -87,6 +88,16 @@
         padding: 0px;
     }
 
+
+    .smalltext{
+        font-size:smaller
+    }
+
+    .page-footer{
+        padding-top: 65px;
+        color: #333
+    }
+
     .completed{
         background-color: black;
         color: white
@@ -104,9 +115,15 @@
 
     ul{
         color: azure;
-        font-family: 'Times New Roman', Times, serif
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 2.0;
     }
 
+    ol{
+        color: azure;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: 2.0;
+    }
 
 
     .subtext{
@@ -148,7 +165,11 @@
         outline: none;
         font-size: 15px;
     }
-      
+    
+    .text-padding{
+        padding: 100px
+    }
+
     .active, .collapsible:hover {
         background-color: black;
     }
