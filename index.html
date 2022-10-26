@@ -1,435 +1,74 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
-        <link href="style.css" type="text/css" rel="stylesheet">
-        <title>Spacecrafts</title>
-    </head>
-    
-    <body>
-        <h1 class = "title uppercase heading"><strong>Spacecrafts</strong> </h1>
-        <h2 class = "heading subheading">What do they look like?</h2>
-        <!--<h5 class = "heading subheading">By: Richard Su</h3>-->
-        <section id = "Introduction">
-            <div class = "container my-auto">
-            <div class="row mx-auto">
-                <div class="col-sm my-auto text-center splash-1">
-                    <img src="http://www.esa.int/var/esa/storage/images/esa_multimedia/images/2014/11/rosetta_at_comet_portrait/15031266-1-eng-GB/Rosetta_at_Comet_portrait_pillars.jpg"class = "image-fluid rounded" alt = "Spacecraft, ESA" height = "450">
-                </div>
-                <div class="col-sm h-100 my-auto text-center splash-text splash-2">
-                <a class = "text" href="https://www.youtube.com/watch?v=SQls1SXfL-A" target="_blank">Introduction to Spacecrafts<br><br></a>
-                <h5 class = "body">
-            Spacecraft is defined as "A vehicle used to travel in space” by Oxford Languages.<br><br>
-            Often times, it refers to vehicles designed to operate, with or without a crew, in a controlled flight pattern above Earth’s lower atmosphere (Britannica).<br><br>
-            They are often synonymous with adventure and mystery, and most people link their appearances with either a plane or a space shuttle.<br><br>
-            However, the actual vehicles are designed with a variety of shapes.<br><br>
-            We will be diving deeper into the reasoning behind this, and the factors that contribute to the various designs of spacecrafts.<br><br>
-                </h5>
-                <p class = "text-center">←European Space Agency's Spacecraft</p>
-                <div id='click-to-next'class="container splash-padding">
-                    <button class="btn float-right splash-button advance red-button">Start</button>
-                </div>
-                <br>
-                </div>
-            </div>
-        </section>
-        <section id = "Foundation">
-        <div class="container my-auto">
-            <div class="row mx-auto">
-                <div class="col-xs mx-auto text-center">
-                    <ul class="list-group-flush border text">
-                        <li class="li-one nav list-group-item completed">Introduction</li>
-                        <li class="li-two nav list-group-item completed">Size</li>
-                        <li class="li-three nav list-group-item completed">Mass</li>
-                        <li class="li-four nav list-group-item completed">Shape</li>
-                        <li class="li-five nav list-group-item completed">History</li>
-                        <li class="li-six nav list-group-item completed">Conclusion</li>
-                        <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                    </ul>
-                    <!--This list is originally created & designed by Jeff Bell. I would only use this after I changed and redesgined it. No plagarism shall be done.-->
-                </div>
-                <div class="col-sm h-100 my-auto mx-auto h6 splash-2">
-                    <h4 class="heading text uppercase"><strong>Introduction</strong></h4>
-                    <a class = "text-center text" href="https://www.youtube.com/watch?v=8dpkmUjJ8xU" target="_blank">Introduction to Spacecrafts<br></a>
-                    <br>
-                    <button class="collapsible">Modus Operandi</button>
-                    <div class="content"><br>
-                        <p>
-                            The launch of a spacecraft comprises a period of powered flight during which the vehicle rises above Earth's atmosphere and accelerates at least to orbital velocity. Powered flight ends when the rocket's last stage burns out, and the spacecraft separates and continues in freefall. If the spacecraft has achieved escape from Earth's gravitation, rather than entering Earth orbit, its flight path will then be purely a solar orbit of some description (NASA Science).
-                        </p>
-                    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-                    <br><br>
-                    <button class="collapsible">Power</button>
-                    <div class="content"><br>
-                            <p>
-                                Spacecraft require an onboard source of electrical power to operate the equipment that they carry. Those designed to remain in Earth orbit for extended periods generally use panels of solar cells, often in conjunction with storage batteries. The shuttle orbiter, designed for stays in space of one to two weeks, uses hydrogen-oxygen fuel cells. Deep-space probes, such as the Galileo spacecraft that went into orbit around Jupiter in 1995 and the Cassini spacecraft launched to Saturn in 1997, are usually powered by small, long-lived radioisotope thermoelectric generators, which convert heat emitted by a radioactive element such as plutonium directly into electricity. (Britannica)
-                            </p>
-                    </div>
-                    
-                    <br/><br/>
-                    <button class="collapsible">Purpose</button>
-                    <div class="content"><br>
-                        <p>The purpose of a spacecraft mainly include:<br></p>
-                            <ul>
-                                <li>Communication</li>
-                                <li>Earth Observation</li>
-                                <li>Meteorology</li>
-                                <li>Navigation</li>
-                                <li>Space/Planetary Colonization/Exploration</li>
-                                <li>Transportation of Humans and Cargo</li>
-                            </ul>
-                            <br>
-                        </p>
-                    </div>
-                    <br/><br/>
-                    <button class="collapsible">Design</button>
-                    <div class="content"><br>
-                        <p>
-                            Actual vehicles are designed with a variety of shapes depending on the mission. Spacecraft differ greatly in size, shape, complexity, and purpose. Those that share similarities in design, function, or both are often grouped into program families. (Britannica)
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
 
-                        </p>
-                    </div>
-                    <br>
-                    <button class="btn red-button float-right continue">Next</button>
-                </div>
-                <div class="col-xs mx-auto text-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Endeavour_docked_to_ISS.jpg/300px-Endeavour_docked_to_ISS.jpg"class = "image-fluid rounded" alt = "International Space Station"> <br><br>
-                </div>
-            </div>
+    <!-- Link CSS  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <span id="hour" class="time">00</span>
+            <span class="text">Hr</span>
+            <span id="minute" class="time">00</span>
+            <span class="text">Min</span>
+            <span id="second" class="time">00</span>
+            <span class="text">Sec</span>
+            <span id="msecond" class="time">00</span>
         </div>
-        </section>
-        <section id = "Famous-Members">
-            <div class="container my-auto">
-                <div class="row mx-auto">
-                    <div class="col-xs mx-auto text-center splash-1">
-                        <ul class="list-group-flush border text">
-                            <li class="li-one nav list-group-item completed">Introduction</li>
-                            <li class="li-two nav list-group-item completed">Size</li>
-                            <li class="li-three nav list-group-item completed">Mass</li>
-                            <li class="li-four nav list-group-item completed">Shape</li>
-                            <li class="li-five nav list-group-item completed">History</li>
-                            <li class="li-six nav list-group-item completed">Conclusion</li>
-                            <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm h-100 my-auto h6">
-                        <h3 class="heading text text-center uppercase"><strong>Size</strong></h3>
-                        <h5 class="text-center heading">How big are these things?</h5>
-                        <br><br>
-                        <button class="collapsible">Limitations</button>
-                        <div class="content"><br>
-                            <p>
-                                A spacecraft must be able to fit inside a rocket fairing and the rocket must have enough power to lift it into orbit (ESA). <br>
-                                However, there is no strict rule of how big a spacecraft has to be. It could be as small as 12.25 cubic centimeters, or as big as 915.6 cubic meters.
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Biggest Spacecraft</button>
-                        <div class="content"><br>
-                            <p>
-                                <strong>International Space Station.</strong><br>
-                                It has a size of 915 cubic meters and serves three main purposes: enable long-term space exploration, experimentation, and the gateway to space.<br>
-                                A picture has been provided on the right.
 
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Smallest Spacecraft</button>
-                        <div class="content"><br>
-                            <p>
-                                <strong>Sprites</strong><br>
-                                It is an Indian spacecraft launched in 2017, only having a size of 12.25 cubic <em>centimeters</em>. Despite their small size, they are loaded with solar panels, computers, sensors, and radios.<br>
-                                It serves the purpose of early stage interstellar development, and is an early version of what would be sent to interstellar distances in the future.<br>
-                                A picture has been provided on the right.
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="btn red-button float-right continue">Next</button>
-                    </div>
-                    <div class="col-xs mx-auto text-center">
-                        <img src="https://cdn.mos.cms.futurecdn.net/mPFET8wxkZENQazxvRg7K5.jpg"class="image-fluid rounded" alt="ISS" height="200"><br><Br>
-                        <img src="https://media2.s-nbcnews.com/j/newscms/2017_38/2139931/sprite-nobackground_0a72df4c60f217606a4d706f38b55230.fit-2000w.jpg"class = "image-fluid rounded" alt = "Smallest Spacecraft - Sprites" height = "200">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id = "Exilation">
-            <div class="container my-auto">
-                <div class="row mx-auto">
-                    <div class="col-xs mx-auto text-center splash-1">
-                        <ul class="list-group-flush border text">
-                            <li class="li-one nav list-group-item completed">Introduction</li>
-                            <li class="li-two nav list-group-item completed">Size</li>
-                            <li class="li-three nav list-group-item completed">Mass</li>
-                            <li class="li-four nav list-group-item completed">Shape</li>
-                            <li class="li-five nav list-group-item completed">History</li>
-                            <li class="li-six nav list-group-item completed">Conclusion</li>
-                            <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm h-100 my-auto h6">
-                        <h3 class="heading text text-center uppercase"><strong>Mass</strong></h3>
-                        <h5 class="text-center heading">How heavy are these things?</h5>
-                        <br>
-                        <button class="collapsible">Limitations</button>
-                        <div class="content"><br>
-                            <p>
-                                The lightness of weight and functional reliability are primary features of spacecraft design (Britannica).
-                                This is because heavy spacecrafts need more fuels to launch, and fuels also have weight, thus needing more fuels to support those prior fuels, and ending in a positive feedback loop.
-                                However, as technology improve, this limitation is lifted as it is easier to find an equilibrium.
-                                For example, the first satellite ever launched was only weighed 83.6kg because of such limitations, but right now, we can easily launch communication satellites weighing more than 6 tonnes, or 6000kg. Some cargo carrier can weigh even more. For example, ESA's ATV weigh 20 tonnes.
-                                This allows more efficiency in performing tasks. For example, the ATV mentioned earlier can carry up to 9 tonnes of cargo and experiments to ISS in one flight. 
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Heaviest Spacecraft</button>
-                        <div class="content"><br>
-                            <p>
-                                <strong>International Space Station</strong><br>
-                                The ISS have a mass of 419,700 kilograms, making it the heaviest spacecraft ever launched. This number would fluctuate as the amount of passenger and equipment on board change.
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Lightest Spacecraft</button>
-                        <div class="content"><br>
-                            <p>
-                                <strong>Kalamsat-V2</strong><br>
-                                In 2019, a group of students in India launched the lightest spacecraft in history, Kalamsat-V2. It only weighs 1.26kg.<br>
-                                Surprisingly, the aforementioend "Sprites" is not the lightest. This is because although small, the design is extremely compact, giving Sprites a large mass.<br>
-                                An image is provided on the right.
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="btn red-button float-right continue">Next</button>
-                    </div>
-                    <div class="col-xs mx-auto text-center">
-                        <img src="https://thelogicalindian.com/wp-content/uploads/2019/01/jpg-3.jpg"class = "image-fluid rounded" alt = "Kalamsat-V2" height = 400>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id = "Goals">
-            <div class="container my-auto">
-                <div class="row mx-auto">
-                    <div class="col-xs mx-auto text-center splash-1">
-                        <ul class="list-group-flush border text">
-                            <li class="li-one nav list-group-item completed">Introduction</li>
-                            <li class="li-two nav list-group-item completed">Size</li>
-                            <li class="li-three nav list-group-item completed">Mass</li>
-                            <li class="li-four nav list-group-item completed">Shape</li>
-                            <li class="li-five nav list-group-item completed">History</li>
-                            <li class="li-six nav list-group-item completed">Conclusion</li>
-                            <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm h-100 my-auto h6">
-                        <h3 class="heading text text-center uppercase"><strong>Shape</strong></h3>
-                        <h5 class="text-center heading">What shape do they take?</h5>
-                        <button class="collapsible">History</button>
-                        <div class="content"><br>
-                            <p>
-                                When the Soviet Union and the United States flew the first real spaceships just nine years later—far sooner than most experts had predicted in 1952—they were anything but sleek. One was shaped like a bowling ball; the other resembled a Styrofoam coffee cup. (Air & Space Magazine) The shape of spacecraft then changed due to requirements in the cold war of ICBMs and supersonic travel, to depict a streamlined shape. However, a streamlined shape has no particular advantage in the vacuum and is harder to manufacture, so such shape was disposed after the cold war ended.
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Limitations</button>
-                        <div class="content"><br>
-                            <p>
-                                Since there is no air in space, a spacecraft can be more or less any shape. However, it is still partially dictated by whether they spin or not. Some satellites, such as Meteosat, spin and are drum-shaped. Most satellites today are box-shaped and do not spin. Landers is different. They have to withstand extreme heat as they descend through the air at high speed. For example, ESA’s Huygens probe, which landed on Titan, was shaped like a saucer, with a forward-facing heat shield. (European Space Agency)
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Popular Shapes</button>
-                        <div class="content"><br>
-                            <p>
-                                For long stays in space, it is beneficial to have some sort of artificial gravity induced by rotation. Cylinders and toruses are then good options. They are also rather easy to inflate. Furthermore, spheres and cylinders are relatively easier to manufacture, hence making them popular in spacecraft designs. (Wired)<br>
-                                A picture of a spherical spacecraft, also the first ever satellite, sputnik 1 is provided on the right.
-                            </p>
-                        </div>
-                        <br>
-                        <button class="btn red-button float-right continue">Next</button>
-                    </div>
-                    <div class="col-xs mx-auto text-center">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRstCl6EbNWW9m08_sbyWU-qD8rIRFHAHwpng&usqp=CAU"class = "image-fluid rounded" alt = "Sputnik 1/Spherical Spacecraft" width = "300">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id = "French-Revolution">
-            <div class="container my-auto">
-                <div class="row mx-auto">
-                    <div class="col-xs mx-auto text-center splash-1">
-                        <ul class="list-group-flush border text">
-                            <li class="li-one nav list-group-item completed">Introduction</li>
-                            <li class="li-two nav list-group-item completed">Size</li>
-                            <li class="li-three nav list-group-item completed">Mass</li>
-                            <li class="li-four nav list-group-item completed">Shape</li>
-                            <li class="li-five nav list-group-item completed">History</li>
-                            <li class="li-six nav list-group-item completed">Conclusion</li>
-                            <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm h-100 my-auto h6">
-                        <h3 class="heading text text-center uppercase"><strong>History</strong></h3>
-                        <h5 class="text-center heading">Brief history of spacecrafts</h5>
-                        <br>
-                        <a class = "text-center text mx-auto" href="https://www.youtube.com/watch?v=PLcE3AI9wwE" target="_blank">Brief history of space exploration<br><br></a>
-                        <button class="collapsible">Major Events</button>
-                        <div class="content"><br>
-                            <ol>
-                                <li>Sputnik 1 - Oct.4, 1957 (First successful spacecraft launch)</li>
-                                <li>Laika - Nov. 3, 1957 (Second successful spacecraft launch, first creature in space)</li>
-                                <li>Able & Baker - May 28, 1959 (First creatures to return to Earth)</li>
-                                <li>Yuri Gagarin - April 12, 1961 (First human in space), Image provided on the right.</li>
-                                <li>Alexei Leonov - March 25, 1965 (First Spacewalk)</li>
-                                <li>Mariner 4 - June 14, 1965 (First picture of Mars)</li>
-                                <li>Luna - Feb. 3, 1966 (First spacecraft on moon)</li>
-                                <li>Venera 3 - March 1, 1966 (First spacecraft on Venus)</li>
-                                <li>Zond 5 - Sept. 15, 1968 (First spacecraft to orbit moon)</li>
-                                <li>Apollo 8 - Dec. 28, 1968 (First human on moon)</li>
-                                <li>Neil Armstrong - July 20, 1969 (First human to walk on moon)</li>
-                                <li>Salyut 1 - April 18, 1971 (First space station)</li>
-                                <li>Mars 3 - May 28, 1972 (First landing on Mars)</li>
-                                <li>Skylab I - May 14, 1973 (First orbiting labortory)</li>
-                                <li>Internatioanl Space Station - Nov.20 1998 (Biggest artificial body in space)</li>
-                            </ol>
-                            <p><strong>All above are completed with spacecrafts.</strong></p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Requirements</button>
-                        <div class="content"><br>
-                            <p>
-                                For an object to be recognized as a spacecraft, it needs to reach the altitude of 100km, or the Karman Line. This is also the line that is commonly recongized as the boundary between Earth and Space. Therefore, theoretically, there were many objects that should qualify as spacecrafts before Sputnik 1.
-                            </p>
-                        </div>
-                        <br>
-                        <button class="btn red-button float-right continue">Next</button>
-                    </div>
-                    <div class="col-xs mx-auto text-center">
-                        <img src="https://m.media-amazon.com/images/M/MV5BODZkYjhhMjAtZjM5ZS00ZmQ3LThjNWYtZTU5NDEwZjg2ZjEwXkEyXkFqcGdeQXVyNTc0NjY1ODk@._V1_.jpg"class = "image-fluid rounded" alt = "Yuri Gagarin" height = 400 width = 300>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id = "Conspiracy">
-            <div class="container my-auto">
-                <div class="row mx-auto">
-                    <div class="col-xs mx-auto text-center splash-1">
-                        <ul class="list-group-flush border text">
-                            <li class="li-one nav list-group-item completed">Introduction</li>
-                            <li class="li-two nav list-group-item completed">Size</li>
-                            <li class="li-three nav list-group-item completed">Mass</li>
-                            <li class="li-four nav list-group-item completed">Shape</li>
-                            <li class="li-five nav list-group-item completed">History</li>
-                            <li class="li-six nav list-group-item completed">Conclusion</li>
-                            <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm h-100 my-auto h6">
-                        <h3 class="heading text text-center uppercase"><strong>Conclusion</strong></h3>
-                        <br>
+        <div class="buttons">
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="stop">Stop</button>
+            <button class="btn" id="reset">Reset</button>
+        </div>
+    </div>
 
-                        <button class="collapsible">Future Spacecrafts</button>
-                        <div class="content">
-                            <p><br>
-                                ESA and NASA have future plan of collaboration regarding spacecraft design & launching.<br>
-                                NASA plans on acheiving human landing on the lunar south pole by 2024<br>
-                                ESA plans to work on space security, safety, space weather, asteroid and debris defense, removing space garbage, etc.<br>
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Current and future players</button>
-                        <div class="content"><br>
-                            <p>
-                                USA, Czechoslovakia, Poland, Germany, Bulgaria, Hungary, Vietnam, Cuba, Mongolia, Romania, France, India, Canada, Saudi Arabia, Netherlands, Mexico, Syria, Afghanistan, Japan, UK, Russia, Belgium, Italy, Switzerland, Ukrain, Spain, Slovakia, South Africa, Israel, China, Brazil, Iran, Sweden, Malaysia, South Korea, Denmark, Kazakhstan, UAE
-                                <br>A map of all players have been shown on the right.
-                            </p>
-                        </div>
-                        <br/><br/>
-                        <button class="collapsible">Future designs</button>
-                        <div class="content"><br>
-                            <p>
-                               Thermonuclear Propulsion - Achieve extreme speed while not overheating the spacecraft.<br>
-                               Autodriving system (AI based) - Steer the spacecraft while in ultra-speed<br>
-                               Solar power - Avoid having to carry as much fuel to achieve higher speed<br>
-                               Antimatter (?) - If humans can ever find a way to control it, antimatter would make a great fuel while giving no weight at all.
-                            </p>
-                        </div>
-                        <br>
-                        <button class="btn red-button float-right continue">Next</button>
-                    </div>
-                    <div class="col-xs mx-auto text-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Astronaut_Nationalities.svg/390px-Astronaut_Nationalities.svg.png"class = "image-fluid rounded" alt = "Space players" height = "150"><br><br>
-                        <br><br><iframe width="300" height="200"
-                        src="https://www.youtube.com/embed/_hO6WpwFpf8">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id = "Conclusion">
-            <div class="container my-auto">
-                <div class="row mx-auto">
-                    <div class="col-xs mx-auto text-center splash-1">
-                        <ul class="list-group-flush border text">
-                            <li class="li-one nav list-group-item completed">Introduction</li>
-                            <li class="li-two nav list-group-item completed">Size</li>
-                            <li class="li-three nav list-group-item completed">Mass</li>
-                            <li class="li-four nav list-group-item completed">Shape</li>
-                            <li class="li-five nav list-group-item completed">History</li>
-                            <li class="li-six nav list-group-item completed">Conclusion</li>
-                            <li class="li-seven nav list-group-item completed">Citations and Further Reading</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm h-100 my-auto h6">
-                        <h3 class = "heading uppercase text">Citations and Further Reading</h3><br>
-                        <h5 class="text-center heading">With a quiz & minigame!</h5>
-                        <button class="collapsible">Work cited</button>
-                        <div class="content"><br>
-                            <p>
-                                “All Shapes and Sizes.” European Space Agency, 12 Oct. 2011, www.esa.int/kids/en/learn/Technology/Spacecraft/All_shapes_and_sizes. <br>
-                                Chaikin, Andrew. “How the Spaceship Got Its Shape.” Air and Space Magazine, Nov. 2009, www.airspacemag.com/space/how-the-spaceship-got-its-shape-137293282/. <br>
-                                Dooling, Dave. “Spaceflight.” Britannica, 2020, www.britannica.com/science/spaceflight. 
-“Spacecraft.” Britannica, 2021, www.britannica.com/technology/spacecraft. <br>
-Woo, Marcus. “Why Europe's Experimental Spaceship Is Shaped So Weirdly.” Wired, 2 Dec. 2015, www.wired.com/2015/02/europes-experimental-spaceship-weird-shape/.<br>
-...And 9 more in <a href = "https://docs.google.com/document/d/12Kn144J3K8U7zGo6VuX3k2r_4wAsUxTNq7oiJUD3tPU/edit?usp=sharing" target="_blank">the work cited document</a><br>
+    <div class="container">
+        <div>
+            <span id="hour" class="time">00</span>
+            <span class="text">Hr</span>
+            <span id="minute" class="time">00</span>
+            <span class="text">Min</span>
+            <span id="second" class="time">00</span>
+            <span class="text">Sec</span>
+            <span id="msecond" class="time">00</span>
+        </div>
 
-                            </p>
-                        
-                        </div>
-                        <br>
-                        <a href = "https://docs.google.com/document/d/1iEflIKL_99Qb25hSAJXEtgPbW0gJgcFaH1ghvejen_s/edit?usp=sharing" target="_blank">Research Document (Doesn't contain all information in the website)</a><br>
-                        <br>
-                        <div id="outer">
-                            <button class="btn alt-button inner" style="float:left"><a class = "text times" href="QuizAvatar.html" target="_blank">Quiz</a></button>
-                            <button class="btn alt-button inner"><a class = "text times" href="Minigame.html" target="_blank">Minigame</a></button>
-                            <button class="btn red-button inner continue" style="float:right">Go back to Introduction</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="footer-copyright text-center py-3 text smalltext">Designed & Programmed by Richard Su, proudly done with HTML and not web designer</div>
-    </body>
-    <!---scripts here--->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <div class="buttons">
+            <button class="btn" id="start">Start</button>
+            <button class="btn" id="stop">Stop</button>
+            <button class="btn" id="reset">Reset</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <label for="freeform">Speaker's List</label>
+        <br>
+
+        <textarea id="freeform" name="freeform" rows="4" cols="50">
+        Speaker's List
+        </textarea>
+    </div>
+
+    <div class="container">
+        <label for="freeform">Motions</label>
+        <br>
+
+        <textarea id="freeform" name="freeform" rows="4" cols="50">
+        Motions
+        </textarea>
+    </div>
+
     <script src="Script1.js"></script>
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-        
-        for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-              content.style.maxHeight = null;
-            } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-            } 
-          });
-        }
-    </script>
+
+</body>
+
 </html>
