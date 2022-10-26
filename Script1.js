@@ -1,139 +1,84 @@
-$(document).ready(function(){
+let hour = document.getElementById('hour');
+let minute = document.getElementById('minute');
+let second = document.getElementById('second');
+let msecond = document.getElementById('msecond');
+let start = document.getElementById('start');
+let stop = document.getElementById('stop');
+let reset = document.getElementById('reset');
 
-    pages = ["#Introduction","#Foundation","#Famous-Members","#Exilation", 
-    "#Goals", "#French-Revolution", "#Conspiracy", "#Conclusion"];
+let hr = 0;
+let min = 0;
+let sec = 0;
+let count = 0;
 
-    $(".advance, .continue").on("click", buttonRender);
-    $(".nav").on("click", showSideTarget);
+let timer = false;
 
-
-
-    function hideAll(){
-        for (var i = 0; i < pages.length; i++){
-            $(pages[i]).hide();
-        }
-    };
-
-    function showSideTarget(){
-
-        hideAll();
-        //this nicely gets the text from my li-classes
-        var liClass = $(this).attr("class").split(/\s+/)[0]
-
-        $(" ul li").removeClass("list-group-item-info");
-
-        switch(liClass){
-            case "li-one":
-                $(pages[1]).show();
-                $(".li-one").addClass("list-group-item-info");
-                break;
-            
-            case "li-two":
-                $(pages[2]).show();
-                $(".li-two").addClass("list-group-item-info");
-                break;
-            
-            case "li-three":
-                $(pages[3]).show();
-                $(".li-three").addClass("list-group-item-info");
-                break;
-
-            case "li-four":
-                $(pages[4]).show();
-                $(".li-four").addClass("list-group-item-info");
-                break;
-
-            case "li-five":
-                $(pages[5]).show();
-                $(".li-five").addClass("list-group-item-info");
-                break;
-
-            case "li-six":
-                $(pages[6]).show();
-                $(".li-six").addClass("list-group-item-info");
-                break;
-
-            case "li-seven":
-                $(pages[7]).show();
-                $(".li-seven").addClass("list-group-item-info");
-                break;
-            
-        };
-    
-    };
-
-    function buttonRender(){
-        var currentPage = $(this).closest("section").attr("id");
-
-        $("ul li").removeClass("list-group-item-info");
-
-        switch(currentPage) {
-            case "Introduction":
-                $(pages[0]).hide();
-                $(".li-one").removeClass("disabled");
-                $(".li-one").addClass("list-group-item-info");
-                $(".li-one").addClass("completed")
-                $(pages[1]).show();
-                break;
-
-            case "Foundation":
-                $(pages[1]).hide();
-                $(".li-two").removeClass("disabled");
-                $(".li-two").addClass("list-group-item-info");///fixed some stuff from here on
-                $(".li-two").addClass("completed")
-                $(pages[2]).show();
-                break;
-
-            case "Famous-Members":
-                $(pages[2]).hide();
-                $(".li-three").removeClass("disabled");
-                $(".li-three").addClass("list-group-item-info");
-                $(".li-three").addClass("completed")
-                $(pages[3]).show();
-                break;
-
-            case "Exilation":
-                $(pages[3]).hide();
-                $(".li-four").removeClass("disabled");
-                $(".li-four").addClass("list-group-item-info");
-                $(".li-four").addClass("completed")
-                $(pages[4]).show();
-                break;
-
-            case "Goals":
-                $(pages[4]).hide();
-                $(".li-five").removeClass("disabled");
-                $(".li-five").addClass("list-group-item-info");
-                $(".li-five").addClass("completed")
-                $(pages[5]).show();
-                break;
-
-            case "French-Revolution":
-                $(pages[5]).hide();
-                $(".li-six").removeClass("disabled");
-                $(".li-six").addClass("list-group-item-info");
-                $(".li-six").addClass("completed")
-                $(pages[6]).show();
-                break;
-
-            case "Conspiracy":
-                $(pages[6]).hide();
-                $(".li-seven").removeClass("disabled");
-                $(".li-seven").addClass("list-group-item-info");
-                $(".li-seven").addClass("completed")
-                $(pages[7]).show();
-                break;
-
-            case "Conclusion":
-                $(pages[7]).hide();
-                hideAll()
-                $(pages[0]).show();
-                break;
-
-        }
-
-    };
-
+start.addEventListener('click', function () {
+    timer = true;
+    stopwatch();
 });
-/// Code Credit: Jeff Bell. Edited from his github page. 
-/// I would develop my own code later on, if possible.
+
+stop.addEventListener('click', function () {
+    timer = false;
+});
+
+
+reset.addEventListener('click', function () {
+    timer = false;
+    hr = 0;
+    min = 0;
+    sec = 0;
+    count = 0;
+    hour.textContent = "00";
+    minute.textContent = "00";
+    second.textContent = "00";
+    msecond.textContent = "00";
+});
+
+function stopwatch() {
+    if (timer) {
+        count++;
+        if (count == 100) {
+            sec++;
+            count = 0;
+        }
+
+        if (sec == 60) {
+            min++;
+            sec = 0;
+        }
+
+        if (min == 60) {
+            hr++;
+            min = 0;
+            sec = 0;
+        }
+
+        let hrString = hr;
+        let minString = min;
+        let secString = sec;
+        let countString = count;
+
+        if (hr < 10) {
+            hrString = "0" + hrString;
+        }
+
+        if (min < 10) {
+            minString = "0" + minString;
+        }
+
+        if (sec < 10) {
+            secString = "0" + secString;
+        }
+
+        if (count < 10) {
+            countString = "0" + countString;
+        }
+
+        hour.textContent = hrString;
+        minute.textContent = minString;
+        second.textContent = secString;
+        msecond.textContent = countString;
+        setTimeout(stopwatch, 10);
+    }
+}
