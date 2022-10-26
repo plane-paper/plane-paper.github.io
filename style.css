@@ -8,7 +8,6 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     width: 100%;
     background: #2c3e4f;
     flex-direction: column;
