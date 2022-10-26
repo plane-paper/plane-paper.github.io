@@ -1,192 +1,98 @@
-    h5 {
-      font-family: 'Times New Roman', Times, serif;
-      color: azure;
-    }
-
-    p {
-        font-family: 'Times New Roman', Times, serif;
-        color: azure;
-        line-height: 2.0;
-    }
-    body {
-        background-image: url("https://images.unsplash.com/photo-1531870257380-e44cf23a4135?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fGRhcmslMjBzcGFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
-        background-repeat: repeat-x repeat-y;
-        background-position: right;
-        background-clip: initial;
-        background-color: #cccccc;
-        background-attachment:fixed
-    }
-    #Foundation, #Famous-Members, 
-#Exilation, #Goals, 
-#French-Revolution, #Conspiracy,
-#Conclusion{
-    display: none;
+body{
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-    .btn-info{
-        color: white;
-        border: none;
-        background-color: #f44336;
-        
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: #2c3e4f;
+    flex-direction: column;
+}
+
+.time {
+    font-size: 150px;
+    color: #ffffff;
+}
+
+.text {
+    font-size: 25px;
+    color: #fffcd6;
+}
+
+.button {
+   margin-top: 50px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 10px 16px;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+#start {
+    background-color: rgb(77, 158, 77);
+}
+
+#start:hover {
+    background-color: green;
+}
+
+#stop {
+    background-color: rgb(106, 168, 207);
+
+}
+
+#stop:hover {
+    background-color: rgb(12, 120, 187);
+}
+
+#reset {
+    background-color: rgb(199, 86, 86);
+}
+
+#reset:hover {
+    background-color: rgb(207, 10, 10);
+}
+
+/* Media Queiries */
+@media screen and (max-width : 700px) {
+    .time {
+        font-size: 60px;
+        color: #ffffff;
     }
 
-    .red-button{
-        color: white;
-        border: none;
-        background-color: #f44336
+    .text {
+        font-size: 20px;
+        color: #fffcd6;
     }
 
-    .quiz-container{
-        text-align: left;
-    }
-
-    #outer{
-        width:100%;
+    .buttons {
+        width: 90%;
         text-align: center;
+        margin-top: 40px;
     }
 
-    .inner{
-        display: inline-block;
+    .btn {
+        font-size: 18px;
+        margin: 7px 10px;
+        width: 75%;
     }
 
-    .alt-button{
-        color: white;
-        border: none;
-        background-color: #f44336
+    .time-container {
+        margin-top: -50px;
     }
-
-    .alt-button:hover{
-        background-color: #ccc
-    }
-
-    .suggestion-container{
-        text-align: center;
-    }
-
-    .red-button:hover{
-        background-color: #555555;
-        color: white
-    }
-
-    .border{
-        border:1px solid white;
-    }
-    
-    .times{
-        font-family: 'Times New Roman', Times, serif
-    }
-    .heading{
-        font-family: 'Times New Roman', Times, serif;
-        text-align: center;
-    }
-
-    .splash-padding{
-        padding-top: 40px;
-    }
-
-    .list-group-flush{
-        padding: 0px;
-    }
-
-
-    .smalltext{
-        font-size:smaller
-    }
-
-    .page-footer{
-        padding-top: 65px;
-        color: #333
-    }
-
-    .completed{
-        background-color: black;
-        color: white
-    }
-
-    .list-group-item:hover{
-        background-color:red;
-        color:white;
-        cursor: pointer;
-    }
-
-    .disabled{
-        color: #ccc !important;
-    }
-
-    ul{
-        color: azure;
-        font-family: 'Times New Roman', Times, serif;
-        line-height: 2.0;
-    }
-
-    ol{
-        color: azure;
-        font-family: 'Times New Roman', Times, serif;
-        line-height: 2.0;
-    }
-
-
-    .subtext{
-        display: none;
-        padding-top: 10px;
-        line-height: 1.5;
-    }
-    
-    .subheading{
-        color: lightcoral;
-    }
-
-    .text{
-        color: azure
-    }
-
-    .body{
-        font-family: Helvetica, sans-serif;
-        letter-spacing: 1px;
-        font-weight: 300;
-    }
-
-    .title {
-      color: red;
-    }
-
-    .uppercase {
-      text-transform: uppercase;
-    }
-
-    .collapsible {
-        background-color: #777;
-        color: white;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-        font-size: 15px;
-    }
-    
-    .text-padding{
-        padding: 100px
-    }
-
-    .active, .collapsible:hover {
-        background-color: black;
-    }
-
-    .collapsible:focus {
-        background-color:black;
-      }
-      
-    .content {
-        padding: 0 18px;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-        background-color: black;
-    }
-
-    .list-group-item-info{
-        background-color:white;
-        color:black
-    }
+}
