@@ -1,57 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stopwatch</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="45 58 50">
+<title>░░░░░░</title>
+<!-- 45 58 50 -->
+<style>
+  :root{
+    --bone:#c9d1c4;
+    --dim:#566056;
+    --ash:#2a2f2a;
+    --red:#ff0a0a;
+    --blood:#7a0000;
+    --static:.07;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:#000;color:var(--bone);overflow:hidden}
+  body{
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+    cursor:crosshair;
+    -webkit-font-smoothing:none;
+  }
 
-    <!-- Link CSS  -->
-    <link rel="stylesheet" href="style.css">
+  /* ---------- atmosphere ---------- */
+  #static{
+    position:fixed;inset:0;width:100%;height:100%;
+    image-rendering:pixelated;pointer-events:none;z-index:5;
+    opacity:var(--static);mix-blend-mode:screen;transition:opacity 1.2s;
+  }
+  .scan{
+    position:fixed;inset:0;pointer-events:none;z-index:6;
+    background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.34) 3px);
+  }
+  .vignette{
+    position:fixed;inset:0;pointer-events:none;z-index:7;
+    background:radial-gradient(ellipse at center,rgba(0,0,0,0) 35%,rgba(0,0,0,.88) 100%);
+  }
+  #tear{
+    position:fixed;left:0;right:0;top:0;height:7vh;pointer-events:none;z-index:6;opacity:0;
+    background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.09),rgba(255,255,255,0));
+  }
 
+  /* ---------- waiting screen ---------- */
+  #wait{
+    position:relative;z-index:2;height:100%;
+    display:flex;flex-direction:column;justify-content:space-between;
+    padding:clamp(14px,3vw,38px);
+    transition:opacity 1.6s ease-in;
+    animation:flicker 7s steps(1) infinite;
+  }
+  #wait.cut{opacity:0}
+  @keyframes flicker{
+    0%,100%{opacity:1}
+    31%{opacity:1} 31.4%{opacity:.78} 31.8%{opacity:1}
+    64%{opacity:1} 64.3%{opacity:.6}  64.6%{opacity:.95} 64.9%{opacity:1}
+    88%{opacity:.85} 88.4%{opacity:1}
+  }
+
+  .top{display:flex;justify-content:space-between;gap:1rem;font-size:clamp(.7rem,1.3vw,.9rem);color:var(--dim);letter-spacing:.08em}
+  .top .redact{background:var(--ash);color:var(--ash);user-select:none}
+  #hint{display:block;margin-top:.5rem;color:#3c443c}
+
+  .center{text-align:center}
+  #pre{font-size:clamp(.75rem,1.5vw,1rem);color:var(--dim);letter-spacing:.35em;margin-bottom:clamp(1rem,3vw,2rem)}
+  .clock{
+    display:flex;justify-content:center;align-items:flex-start;
+    gap:clamp(.3rem,1.6vw,1.4rem);
+  }
+  .num,.sep{
+    font-size:clamp(2.3rem,10.5vw,9.5rem);font-weight:700;line-height:1;
+    font-variant-numeric:tabular-nums;
+    text-shadow:0 0 14px rgba(190,255,190,.22);
+  }
+  .num{color:var(--bone);transition:color .2s}
+  .sep{color:var(--dim);animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:.15}}
+  .lbl{font-size:clamp(.6rem,1.2vw,.8rem);color:var(--dim);letter-spacing:.45em;margin-top:.7rem;padding-left:.45em}
+  .clock.hit .num{
+    text-shadow:-4px 0 rgba(255,20,20,.85),4px 0 rgba(0,255,255,.55);
+    transform:translateX(var(--dx,0)) skewX(var(--sk,0deg));
+  }
+
+  #whisper{
+    margin-top:clamp(1.5rem,5vw,3.5rem);min-height:1.6em;
+    font-size:clamp(.8rem,1.7vw,1.1rem);letter-spacing:.14em;color:#8a948a;
+  }
+
+  .bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;font-size:clamp(.65rem,1.2vw,.8rem);color:var(--dim)}
+  #log{display:flex;flex-direction:column;gap:.25rem;min-height:5.2em;justify-content:flex-end}
+  #log div{opacity:.9}
+  #log div:nth-last-child(1){color:#8a948a}
+  #log div:nth-last-child(4){opacity:.4}
+  .cipher{text-align:right;letter-spacing:.12em;color:#2f362f;user-select:text}
+
+  /* panic: last 10 seconds */
+  body.panic .num{color:var(--red);text-shadow:0 0 22px rgba(255,0,0,.6)}
+  body.panic .clock{animation:shake .12s steps(2) infinite}
+  body.panic #pre{color:var(--blood)}
+  @keyframes shake{0%{transform:translate(0,0)}50%{transform:translate(3px,-2px)}100%{transform:translate(-3px,2px)}}
+
+  /* one-frame subliminal words */
+  #flash{
+    position:fixed;inset:0;z-index:8;display:none;align-items:center;justify-content:center;
+    font-size:clamp(2rem,12vw,10rem);font-weight:900;letter-spacing:.06em;color:var(--red);
+    text-shadow:0 0 30px rgba(255,0,0,.7);pointer-events:none;text-align:center;
+  }
+  #flash.on{display:flex}
+
+  /* ---------- the ending ---------- */
+  #final{
+    position:fixed;inset:0;z-index:3;display:none;flex-direction:column;
+    background:#070000;overflow:hidden;
+  }
+  body.final #final{display:flex;animation:slam .5s cubic-bezier(.2,.9,.2,1),jitter .18s steps(2) infinite .5s}
+  body.final{--static:.16}
+  @keyframes slam{from{transform:scale(1.18);opacity:0}to{transform:scale(1);opacity:1}}
+  @keyframes jitter{
+    0%{transform:translate(0,0)}
+    25%{transform:translate(.3%,-.25%)}
+    50%{transform:translate(-.35%,.2%)}
+    75%{transform:translate(.15%,.3%)}
+    100%{transform:translate(-.2%,-.15%)}
+  }
+  .row{flex:var(--g,1) 1 0;min-height:0;display:flex;align-items:center;overflow:hidden;white-space:nowrap;transition:transform .08s}
+  .track{
+    display:flex;flex:none;will-change:transform;
+    animation:slide var(--dur,14s) linear infinite;animation-direction:var(--dir,normal);
+  }
+  .half{display:flex;flex:none}
+  .half span{
+    font-family:Impact,Haettenschweiler,"Arial Narrow Bold","Arial Black",sans-serif;
+    font-weight:900;font-size:var(--fs,20vh);line-height:.8;letter-spacing:.02em;
+    padding-right:.32em;color:var(--red);
+    text-shadow:0 0 .12em rgba(255,0,0,.75),0 0 .5em rgba(160,0,0,.7);
+  }
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  #final.invert{background:var(--red)}
+  #final.invert .half span{color:#000;text-shadow:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important}
+  }
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <div>
-            <span id="hour" class="time">00</span>
-            <span class="text">Hr</span>
-            <span id="minute" class="time">00</span>
-            <span class="text">Min</span>
-            <span id="second" class="time">00</span>
-            <span class="text">Sec</span>
-            <span id="msecond" class="time">00</span>
-        </div>
 
-        <div class="buttons">
-            <button class="btn" id="start">Start</button>
-            <button class="btn" id="stop">Stop</button>
-            <button class="btn" id="reset">Reset</button>
-        </div>
+<canvas id="static" width="192" height="108"></canvas>
+<div class="scan"></div>
+<div class="vignette"></div>
+<div id="tear"></div>
+<div id="flash"></div>
+
+<main id="wait">
+  <div>
+    <div class="top">
+      <span>TRANSMISSION 0400 / FILE <span class="redact">████████</span></span>
+      <span>INTEGRITY <span id="integ">37</span>%</span>
     </div>
+    <span class="top" id="hint">[ click anywhere to open the channel ]</span>
+  </div>
 
-
-    <div class="container">
-        <label for="freeform">Speaker's List</label>
-        <br>
-
-        <textarea id="freeform" name="freeform" rows="17" cols="100">
-Speaker's List
-</textarea>
+  <section class="center">
+    <p id="pre">UNTIL 16:00 EST / 2026-12-31</p>
+    <div class="clock" id="clock" aria-label="countdown">
+      <div class="seg"><div class="num">000</div><div class="lbl">DAYS</div></div>
+      <div class="sep">:</div>
+      <div class="seg"><div class="num">00</div><div class="lbl">HRS</div></div>
+      <div class="sep">:</div>
+      <div class="seg"><div class="num">00</div><div class="lbl">MIN</div></div>
+      <div class="sep">:</div>
+      <div class="seg"><div class="num">00</div><div class="lbl">SEC</div></div>
     </div>
+    <p id="whisper" aria-live="off"></p>
+  </section>
 
-    <div class="container">
-        <label for="freeform">Motions</label>
-        <br>
+  <div class="bottom">
+    <div id="log"></div>
+    <div class="cipher">RVhQ<br>45 58 50<br>01000101 01011000 01010000</div>
+  </div>
+</main>
 
-        <textarea id="freeform" name="freeform" rows="17" cols="100">
-Motions
-</textarea>
-    </div>
+<section id="final" aria-label="EXP"></section>
 
-    <script src="Script1.js"></script>
+<script>
+(() => {
+  /* =========================================================
+     CONFIG
+     4:00 PM EST is UTC-5 (fixed offset). Change the date here.
+     Preview helpers:  page.html#test  -> ends 15 seconds after load
+                       page.html#end   -> skips straight to the ending
+     ========================================================= */
+  const TARGET_ISO = "2026-12-31T16:00:00-05:00";
 
+  let target = new Date(TARGET_ISO).getTime();
+  if (location.hash === "#test") target = Date.now() + 15000;
+  if (location.hash === "#end")  target = Date.now() - 1;
+
+  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s) => document.querySelector(s);
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const pad = (n, l) => String(n).padStart(l, "0");
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  const root = document.documentElement;
+  const clock = $("#clock");
+  const nums = [...document.querySelectorAll(".num")];
+  const pre = $("#pre");
+  const whisper = $("#whisper");
+  const logEl = $("#log");
+  const integ = $("#integ");
+  const flashEl = $("#flash");
+  const tearEl = $("#tear");
+  const wait = $("#wait");
+  const final = $("#final");
+
+  let ended = false;
+  let level = 0;               // 0: >1 day, 1: >1 hour, 2: >1 min, 3: last minute
+  let shown = ["", "", "", ""];
+
+  console.log("%cYOU WERE NOT SUPPOSED TO OPEN THIS.", "color:#f00;font-size:22px;font-weight:bold");
+  console.log("45 58 50");
+
+  /* ---------- TV static ---------- */
+  (() => {
+    const cv = $("#static");
+    const ctx = cv.getContext("2d");
+    const img = ctx.createImageData(cv.width, cv.height);
+    const buf = new Uint32Array(img.data.buffer);
+    let last = 0;
+    function frame(t) {
+      if (t - last > 75) {
+        last = t;
+        for (let i = 0; i < buf.length; i++) {
+          const v = (Math.random() * 255) | 0;
+          buf[i] = 0xff000000 | (v << 16) | (v << 8) | v;
+        }
+        ctx.putImageData(img, 0, 0);
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  /* ---------- audio (starts on first click) ---------- */
+  let actx = null, master = null;
+  function startAudio() {
+    if (actx) return;
+    try {
+      actx = new (window.AudioContext || window.webkitAudioContext)();
+      master = actx.createGain();
+      master.gain.value = 0;
+      master.connect(actx.destination);
+      const lp = actx.createBiquadFilter();
+      lp.type = "lowpass";
+      lp.frequency.value = 180;
+      lp.connect(master);
+      [55, 55.7, 82.4].forEach((f) => {
+        const o = actx.createOscillator();
+        o.type = "sawtooth";
+        o.frequency.value = f;
+        o.connect(lp);
+        o.start();
+      });
+      master.gain.linearRampToValueAtTime(0.05, actx.currentTime + 4);
+      $("#hint").style.visibility = "hidden";
+    } catch (e) { /* audio is optional */ }
+  }
+  ["pointerdown", "keydown"].forEach((ev) => addEventListener(ev, startAudio, { once: true }));
+
+  function slamAudio() {
+    if (!actx) return;
+    try {
+      const t = actx.currentTime;
+      const o = actx.createOscillator();
+      const g = actx.createGain();
+      o.type = "sine";
+      o.frequency.setValueAtTime(95, t);
+      o.frequency.exponentialRampToValueAtTime(28, t + 1.6);
+      g.gain.setValueAtTime(0.7, t);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 2.2);
+      o.connect(g);
+      g.connect(actx.destination);
+      o.start(t);
+      o.stop(t + 2.3);
+      master.gain.cancelScheduledValues(t);
+      master.gain.linearRampToValueAtTime(0.17, t + 0.6);
+    } catch (e) {}
+  }
+
+  /* ---------- countdown ---------- */
+  function render(ms) {
+    const s = Math.max(0, Math.floor(ms / 1000));
+    const vals = [
+      pad(Math.floor(s / 86400), 3),
+      pad(Math.floor((s % 86400) / 3600), 2),
+      pad(Math.floor((s % 3600) / 60), 2),
+      pad(s % 60, 2),
+    ];
+    vals.forEach((v, i) => {
+      if (shown[i] !== v) { shown[i] = v; nums[i].textContent = v; }
+    });
+    return vals;
+  }
+
+  function setLevel(ms) {
+    const lv = ms > 86400000 ? 0 : ms > 3600000 ? 1 : ms > 60000 ? 2 : 3;
+    if (lv !== level || !root.dataset.lv) {
+      level = lv;
+      root.dataset.lv = lv;
+      root.style.setProperty("--static", [0.07, 0.1, 0.16, 0.28][lv]);
+    }
+    document.body.classList.toggle("panic", ms <= 10000);
+    if (ms <= 10000) pre.textContent = "TOO LATE TO LEAVE";
+  }
+
+  function tick() {
+    const ms = target - Date.now();
+    if (ms <= 0) { render(0); beginEnding(); return; }
+    const v = render(ms);
+    setLevel(ms);
+    if (!document.hidden && !ended) document.title = "░ " + v.join(":") + " ░";
+  }
+
+  /* ---------- glitches ---------- */
+  const GARBAGE = "█▓▒░#?01ΞΩ∆Ø";
+  const FLASHES = ["I SEE YOU", "NOT YET", "LOOK BEHIND", "STAY", "EXP", "IT'S HERE"];
+
+  function hit(dur) {
+    clock.style.setProperty("--dx", rand(-16, 16).toFixed(1) + "px");
+    clock.style.setProperty("--sk", rand(-9, 9).toFixed(1) + "deg");
+    clock.classList.add("hit");
+    setTimeout(() => clock.classList.remove("hit"), dur || rand(80, 190));
+  }
+
+  function corrupt() {
+    const i = Math.floor(Math.random() * nums.length);
+    const cur = shown[i];
+    let g = "";
+    for (let k = 0; k < cur.length; k++) g += Math.random() < 0.6 ? pick(GARBAGE) : cur[k];
+    nums[i].textContent = g;
+    setTimeout(() => { nums[i].textContent = shown[i]; }, rand(90, 220));
+  }
+
+  function flashWord() {
+    flashEl.textContent = pick(FLASHES);
+    flashEl.classList.add("on");
+    setTimeout(() => flashEl.classList.remove("on"), 90);
+  }
+
+  function tear() {
+    tearEl.style.opacity = 1;
+    tearEl.animate(
+      [{ transform: "translateY(-10vh)" }, { transform: "translateY(110vh)" }],
+      { duration: rand(1200, 2200), easing: "linear" }
+    ).onfinish = () => { tearEl.style.opacity = 0; };
+  }
+
+  function glitchOnce() {
+    const r = Math.random();
+    if (r < 0.45) hit();
+    else if (r < 0.85) { hit(120); corrupt(); }
+    else if (level >= 1 && r < 0.95) flashWord();
+    else tear();
+    // integrity blip
+    if (Math.random() < 0.5) {
+      integ.textContent = Math.random() < 0.15 ? "00" : String(Math.floor(rand(28, 46)));
+    }
+  }
+
+  function glitchLoop() {
+    const gap = [rand(3500, 9000), rand(2000, 5500), rand(800, 2400), rand(150, 550)][level];
+    setTimeout(() => {
+      if (ended) return;
+      if (!RM) glitchOnce();
+      glitchLoop();
+    }, gap);
+  }
+
+  /* ---------- whispers ---------- */
+  const LINES = [
+    "THE SIGNAL IS NOT BROADCAST. IT IS REMEMBERED.",
+    "YOU WERE NOT SUPPOSED TO FIND THIS PAGE.",
+    "SUBJECT 17 STOPPED COUNTING AT THREE.",
+    "STAY ON THIS PAGE. DO NOT REFRESH.",
+    "IT KNOWS YOU ARE HERE.",
+    "EXP IS NOT AN ACRONYM.",
+    "THE OTHERS LEFT. THEY ARE STILL LISTENING.",
+    "DO NOT TRUST THE NUMBERS.",
+    "SOMETHING IS WAITING AT ZERO.",
+    "THE LAST VISITOR ALSO WATCHED THIS CLOCK.",
+  ];
+
+  async function whisperLoop() {
+    let i = Math.floor(Math.random() * LINES.length);
+    while (!ended) {
+      const line = LINES[i++ % LINES.length];
+      for (let c = 1; c <= line.length && !ended; c++) {
+        whisper.textContent = line.slice(0, c) + "▌";
+        await sleep(rand(28, 95));
+      }
+      await sleep(2600);
+      for (let c = line.length; c >= 0 && !ended; c--) {
+        whisper.textContent = line.slice(0, c) + "▌";
+        await sleep(14);
+      }
+      await sleep(rand(500, 1800));
+    }
+  }
+
+  /* ---------- fake system log ---------- */
+  const LOGS = [
+    "carrier stable",
+    "listener count: 1",
+    "listener count: 1",
+    "listener count: 1",
+    "listener count: 2",
+    "unindexed node responding",
+    "do not close this tab",
+    "cache integrity: FAILED",
+    "packet 0x45 0x58 0x50 received",
+    "audio channel: no response",
+    "origin: unknown",
+    "someone is reading this",
+    "signal drift +0.4s",
+  ];
+  function logLoop() {
+    if (ended) return;
+    const d = new Date();
+    const ts = pad(d.getHours(), 2) + ":" + pad(d.getMinutes(), 2) + ":" + pad(d.getSeconds(), 2);
+    const line = document.createElement("div");
+    line.textContent = "[" + ts + "] " + pick(LOGS);
+    logEl.appendChild(line);
+    while (logEl.children.length > 4) logEl.removeChild(logEl.firstChild);
+    setTimeout(logLoop, rand(3500, 8500));
+  }
+
+  /* ---------- tab title tricks ---------- */
+  document.addEventListener("visibilitychange", () => {
+    if (ended) return;
+    if (document.hidden) document.title = pick(["come back", "DON'T LEAVE", "where did you go"]);
+    else { document.title = "you came back"; setTimeout(() => { if (!ended) tick(); }, 2500); }
+  });
+
+  /* ---------- the ending ---------- */
+  function buildFinal() {
+    const ROWS = 6;
+    const grows = Array.from({ length: ROWS }, () => rand(0.65, 1.7));
+    const total = grows.reduce((a, b) => a + b, 0);
+    grows.forEach((g, i) => {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.style.setProperty("--g", g.toFixed(3));
+      row.style.setProperty("--fs", ((g / total) * 100 * 1.22).toFixed(2) + "vh");
+      row.style.setProperty("--dur", rand(9, 22).toFixed(1) + "s");
+      row.style.setProperty("--dir", i % 2 ? "reverse" : "normal");
+      const track = document.createElement("div");
+      track.className = "track";
+      for (let h = 0; h < 2; h++) {
+        const half = document.createElement("div");
+        half.className = "half";
+        for (let n = 0; n < 20; n++) {
+          const s = document.createElement("span");
+          s.textContent = "EXP";
+          half.appendChild(s);
+        }
+        track.appendChild(half);
+      }
+      row.appendChild(track);
+      final.appendChild(row);
+    });
+
+    if (RM) return;
+    // torn rows
+    (function shred() {
+      const rows = final.querySelectorAll(".row");
+      const row = pick([...rows]);
+      row.style.transform = "translateX(" + rand(-4, 4).toFixed(1) + "%) skewX(" + rand(-12, 12).toFixed(1) + "deg)";
+      setTimeout(() => { row.style.transform = ""; }, rand(70, 200));
+      setTimeout(shred, rand(600, 1800));
+    })();
+    // rare inverted flash (kept infrequent)
+    (function invert() {
+      setTimeout(() => {
+        final.classList.add("invert");
+        setTimeout(() => final.classList.remove("invert"), 70);
+        invert();
+      }, rand(4500, 9000));
+    })();
+  }
+
+  async function beginEnding() {
+    if (ended) return;
+    ended = true;
+    clearInterval(timer);
+    document.body.classList.add("panic");
+    pre.textContent = "";
+    whisper.textContent = "";
+    root.style.setProperty("--static", 0.45);
+    slamAudio();
+
+    if (!RM) {
+      const burst = setInterval(() => hit(70), 110);
+      await sleep(1300);
+      clearInterval(burst);
+    }
+    wait.classList.add("cut");
+    await sleep(RM ? 100 : 1800);
+
+    wait.style.display = "none";
+    buildFinal();
+    document.body.classList.remove("panic");
+    document.body.classList.add("final");
+    document.title = "EXP";
+  }
+
+  /* ---------- go ---------- */
+  const timer = setInterval(tick, 200);
+  tick();
+  if (!ended) {
+    glitchLoop();
+    whisperLoop();
+    logLoop();
+    if (!RM) (function tearLoop() { setTimeout(() => { if (!ended) { tear(); tearLoop(); } }, rand(6000, 14000)); })();
+  }
+})();
+</script>
 </body>
-
 </html>
