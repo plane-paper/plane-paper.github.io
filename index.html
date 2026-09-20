@@ -192,7 +192,7 @@
      Preview helpers:  page.html#test  -> ends 15 seconds after load
                        page.html#end   -> skips straight to the ending
      ========================================================= */
-  const TARGET_ISO = "2026-09-19T16:00:00-05:00";
+  const TARGET_ISO = "2026-09-20T16:00:00-05:00";
 
   let target = new Date(TARGET_ISO).getTime();
   if (location.hash === "#test") target = Date.now() + 15000;
