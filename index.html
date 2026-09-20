@@ -163,7 +163,7 @@
   </div>
 
   <section class="center">
-    <p id="pre">UNTIL 16:00 EST / 2026-12-31</p>
+    <p id="pre">UNTIL 16:00 EST / 2026-09-20</p>
     <div class="clock" id="clock" aria-label="countdown">
       <div class="seg"><div class="num">000</div><div class="lbl">DAYS</div></div>
       <div class="sep">:</div>
@@ -192,7 +192,7 @@
      Preview helpers:  page.html#test  -> ends 15 seconds after load
                        page.html#end   -> skips straight to the ending
      ========================================================= */
-  const TARGET_ISO = "2026-12-31T16:00:00-05:00";
+  const TARGET_ISO = "2026-09-19T16:00:00-05:00";
 
   let target = new Date(TARGET_ISO).getTime();
   if (location.hash === "#test") target = Date.now() + 15000;
